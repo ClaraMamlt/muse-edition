@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muse Édition</title>
+  <meta name="description" content="Muse Édition — Curation premium. Galerie d'art contemporain. Sélection privée." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@200;300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      min-height: 100%;
+      background: #F7F4EF;
+      color: #0D0D0D;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── GRILLE MAGAZINE ── */
+    .cover {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ── BARRE SUPÉRIEURE ── */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0 24px;
+      border-bottom: 2px solid #0D0D0D;
+    }
+
+    .issue {
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #0D0D0D;
+    }
+
+    .top-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #0D0D0D;
+    }
+
+    .top-right {
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #999;
+    }
+
+    /* ── CORPS ── */
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 56px 0 48px;
+    }
+
+    /* kicker */
+    .kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kicker::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #0D0D0D;
+    }
+    .kicker span {
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* manchette principale */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(3.8rem, 14vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    h1 .italic {
+      font-weight: 400;
+      font-style: italic;
+      text-transform: none;
+      font-size: 0.72em;
+      display: block;
+      letter-spacing: 0.01em;
+      padding-left: 4px;
+    }
+
+    /* filet */
+    .mid-rule {
+      height: 1px;
+      background: #0D0D0D;
+      margin: 28px 0;
+    }
+
+    /* chapô */
+    .chapo {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.65;
+      color: #444;
+      margin-bottom: 40px;
+      max-width: 420px;
+    }
+
+    /* grille info */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid #ccc;
+      margin-bottom: 40px;
+    }
+
+    .info-cell {
+      padding: 14px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .info-cell:nth-child(odd) { border-right: 1px solid #ccc; padding-right: 16px; }
+    .info-cell:nth-child(even) { padding-left: 16px; }
+
+    .info-label {
+      font-size: 8px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 4px;
+    }
+
+    .info-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: #0D0D0D;
+    }
+
+    /* CTA */
+    .cta-section {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 20px 40px;
+      background: #0D0D0D;
+      color: #F7F4EF;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .btn:hover { background: #333; }
+
+    .cta-note {
+      font-size: 9px;
+      color: #aaa;
+      letter-spacing: 0.08em;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    /* ── PIED ── */
+    footer {
+      border-top: 2px solid #0D0D0D;
+      padding: 18px 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    footer span, footer a {
+      font-size: 8px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #999;
+      text-decoration: none;
+    }
+
+    footer a:hover { color: #0D0D0D; }
+
+    @media (max-width: 380px) {
+      h1 { font-size: 3.2rem; }
+      .cta-section { flex-direction: column; align-items: flex-start; }
+      footer { flex-direction: column; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cover">
+
+    <!-- BARRE SUPÉRIEURE -->
+    <header class="top-bar">
+      <span class="issue">Édition Privée</span>
+      <span class="top-logo">Muse</span>
+      <span class="top-right">MMXXV</span>
+    </header>
+
+    <!-- CORPS -->
+    <main>
+
+      <div class="kicker">
+        <span>Accès Confidentiel</span>
+      </div>
+
+      <h1>
+        Le réseau
+        <span class="italic">des muses.</span>
+      </h1>
+
+      <div class="mid-rule"></div>
+
+      <p class="chapo">
+        Pas une page de fan.<br>
+        Un réseau de magazines.<br>
+        Une signature. Plusieurs univers.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-cell">
+          <p class="info-label">Format</p>
+          <p class="info-value">Canal privé</p>
+        </div>
+        <div class="info-cell">
+          <p class="info-label">Accès</p>
+          <p class="info-value">100 % gratuit</p>
+        </div>
+        <div class="info-cell">
+          <p class="info-label">Collection</p>
+          <p class="info-value">10 univers</p>
+        </div>
+        <div class="info-cell">
+          <p class="info-label">Disponibilité</p>
+          <p class="info-value">Immédiat</p>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <!-- ↓ Remplace # par ton lien Telegram -->
+        <a href="https://t.me/museedition" class="btn">Rejoins le club privé</a>
+        <p class="cta-note">Éditions exclusives & accès directs<br>aux plateformes de nos muses.</p>
+      </div>
+
+    </main>
+
+    <!-- PIED -->
+    <footer>
+      <a href="https://museedition.fr">museedition.fr</a>
+      <span>★</span>
+      <span>Le magazine des muses</span>
+      <span>★</span>
+      <span>Paris</span>
+    </footer>
+
+  </div>
+</body>
+</html>
